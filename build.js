@@ -49,6 +49,8 @@ const fixCss=csso.minify(fix.toString(),{restructure:true}).css;
  fs.writeFileSync(R('dist/be-happy-rodape-legivel.html'),'<style>'+fixCss+'</style><script>'+js+'</script>');
  fs.writeFileSync(R('dist/be-happy.min.css'),mainCss);
  fs.writeFileSync(R('dist/be-happy-rodape.html'),html);
+ // versão para carregar por link (jsDelivr): injeta o CSS do rodapé e roda o script
+ fs.writeFileSync(R('dist/be-happy.js'),'!function(){var s=document.createElement("style");s.textContent='+JSON.stringify(fixCss)+';document.head.appendChild(s)}();\n'+js);
  const z=require('zlib');
  console.log('CSS painel  :',mainCss.length,'bytes  gzip',z.gzipSync(mainCss).length);
  console.log('HTML rodapé :',html.length,'bytes  (style',fixCss.length,'+ script',js.length,')  gzip',z.gzipSync(html).length);
