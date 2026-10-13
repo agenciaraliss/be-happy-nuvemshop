@@ -509,3 +509,110 @@ section.bh-nl .bh-nmsg.show{opacity:1}
 section.bh-nl .bh-nmsg.ok{color:#2e7d4f!important}
 section.bh-nl .bh-nmsg.err{color:#b4443a!important}
 @media(max-width:767px){section.bh-nl{padding:36px 18px 32px!important}section.bh-nl h2{font-size:21px!important}}
+/* ================= PÁGINA DE PRODUTO ================= */
+.bh-ppw{margin-top:0!important;padding-top:0!important}
+.template-product #single-product{padding-top:10px}
+.template-product .section-single-product{align-items:flex-start}
+.template-product .product-image-container .swiper-container{border-radius:22px;overflow:hidden}
+.template-product .js-swiper-product .js-product-slide-link,.template-product .js-product-thumb{padding-bottom:100%!important;height:0!important}
+.template-product .js-swiper-product .js-product-slide-img,.template-product .js-product-thumb img{top:0!important;left:0!important;width:100%!important;height:100%!important;max-width:none!important;transform:none!important;object-fit:contain}
+.template-product .js-swiper-product .swiper-wrapper{height:auto!important}
+.template-product .js-product-thumb{border-radius:14px;overflow:hidden;border:1px solid #F2DCC9;opacity:.65;transition:opacity .25s,border-color .25s}
+.template-product .js-product-thumb.selected,.template-product .js-product-thumb:hover{opacity:1;border-color:#A6635D}
+.template-product .js-product-thumb:after{display:none!important}
+.template-product .page-header{padding-bottom:0;margin-bottom:0}
+.template-product .page-header .container{padding:0!important;max-width:100%}
+.template-product .page-header .row{margin:0!important}
+.template-product .page-header .row>div{flex:0 0 100%;max-width:100%;padding:0!important}
+.template-product .page-header .breadcrumbs{font:400 10px Montserrat,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#A6635D;line-height:1.9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:10px}
+.template-product .page-header .breadcrumbs a{color:#A6635D}
+.template-product .page-header .breadcrumbs .crumb.active,.template-product .page-header .breadcrumbs .divider:nth-last-child(2){display:none}
+.template-product .page-header .breadcrumbs .divider{margin:0 6px;opacity:.5}
+.template-product h1.js-product-name{font-family:'Noto Serif Display',serif!important;font-weight:400!important;font-size:36px!important;line-height:1.12!important;color:#593312!important;letter-spacing:0!important;margin-bottom:6px}
+.template-product .js-price-container{display:flex;flex-wrap:wrap;align-items:baseline;gap:0!important;margin:14px 0 10px!important}
+.template-product .js-price-container>span:first-child{margin:0!important}
+.template-product #price_display{font-family:'Noto Serif Display',serif!important;font-weight:400!important;font-size:32px!important;color:#593312!important}
+.template-product #compare_price_display{font-size:16px!important;color:#B49A86!important;margin-right:10px!important}
+.template-product .js-payment-discount-price-product-container{flex:0 0 100%;margin-top:6px;font:400 14px Montserrat,sans-serif!important;color:#8C6849!important}
+.template-product .js-payment-discount-price-product{font:500 20px 'Noto Serif Display',serif!important;color:#A6635D!important;margin-right:3px}
+.template-product .js-payment-discount-name-product{font-weight:600;color:#A6635D}
+.bh-ppix{margin:-4px 0 14px;font-size:14px;color:#8C6849}
+.bh-ppix b{font:500 20px 'Noto Serif Display',serif;color:#A6635D;margin-right:2px}
+.template-product .js-product-discount-container{display:none!important}
+.template-product .js-product-payments-container{margin:0 0 22px!important}
+.template-product .js-product-payments-container>*,.template-product .js-product-payments-container .col-12{padding:0!important}
+.template-product .js-product-payments-container .js-max-installments{font-size:13px;color:#593312}
+.template-product .js-product-payments-container .js-max-installments *{color:inherit}
+.template-product .js-product-payments-container a.btn-link{display:inline-block;margin-top:6px;font:600 10px Montserrat,sans-serif!important;letter-spacing:.16em;text-transform:uppercase;color:#8C6849!important;text-decoration:underline;text-underline-offset:4px}
+.template-product .js-product-form .form-label{font:600 10px Montserrat,sans-serif!important;letter-spacing:.2em;text-transform:uppercase;color:#8C6849!important;margin-bottom:10px!important}
+.template-product .js-product-form .form-label strong{color:#593312}
+.template-product .js-product-variants .js-insta-variation-label{display:none}
+.template-product .js-product-variants-group{display:flex;flex-wrap:wrap;gap:8px}
+.template-product .js-product-variants-group>.form-label{flex:0 0 100%;margin:0!important}
+.template-product .js-insta-variant.btn-variant{display:flex!important;align-items:center;justify-content:center;min-width:0;height:40px!important;margin:0!important;padding:0 20px!important;border:1px solid #E7C9BE!important;border-radius:999px!important;background:#fff!important;box-shadow:none!important;transition:border-color .25s,background .25s}
+.template-product .js-insta-variant .btn-variant-content{display:block;margin:0!important;padding:0!important;height:auto!important;min-height:0!important;line-height:1!important;font:600 11px Montserrat,sans-serif!important;letter-spacing:.16em;text-transform:uppercase;color:#8C6849!important}
+.template-product .js-insta-variant:hover{border-color:#A6635D!important}
+.template-product .js-insta-variant.selected{background:#593312!important;border-color:#593312!important}
+.template-product .js-insta-variant.selected .btn-variant-content{color:#fff!important}
+.template-product .js-insta-variant.bh-off .btn-variant-content{text-decoration:line-through}
+.template-product .js-insta-variant:after,.template-product .js-insta-variant:before{display:none!important}
+.bh-pspr{display:flex;align-items:flex-start;gap:10px;margin:14px 0 0}
+.bh-pspr svg{flex:none;width:16px;height:28px;margin-top:2px}
+.bh-pspr b{display:block;font:400 17px 'Noto Serif Display',serif;line-height:1.1;color:#593312}
+.bh-pspr b i{font:italic 14px 'Cormorant Garamond',serif;color:#A6635D;margin:0 3px}
+.bh-pspr span{display:block;margin-top:2px;font-size:12px;color:#8C6849}
+.template-product .js-product-form .form-row.mb-2:not(.js-product-variants){align-items:flex-start;margin-top:18px}
+.template-product input.js-addtocart,.template-product .js-quantity{margin-bottom:0!important}
+.template-product .js-product-form .font-small{padding:8px 0 0!important;font-size:11px;color:#8C6849}
+.template-product .form-quantity{height:52px;border:1px solid #E7C9BE!important;border-radius:999px!important;background:#fff}
+.template-product .form-quantity .btn{color:#593312}
+.template-product .form-quantity input{border:0!important;background:none!important;color:#593312;font-weight:600}
+.template-product input.js-addtocart{height:52px!important;border:0!important;border-radius:40px!important;background:#A6635D url("__BAG__") no-repeat calc(50% - 50px) 50%/17px 17px!important;padding-left:30px!important;color:#fff!important;font:600 11px Montserrat,sans-serif!important;letter-spacing:.22em!important;box-shadow:none!important;transition:background-color .3s!important}
+.template-product input.js-addtocart:hover{background-color:#8E524D!important}
+.template-product input.js-addtocart:disabled{background:#E9DDD5!important;color:#A08C7E!important;padding-left:0!important}
+.bh-pwa{display:flex;align-items:center;justify-content:center;height:50px;margin:12px 0 0;border:1px solid #A6635D;border-radius:999px;color:#A6635D!important;font:600 11px Montserrat,sans-serif;letter-spacing:.18em;text-transform:uppercase;text-decoration:none!important}
+.bh-pwa:hover{background:#A6635D;color:#fff!important}
+.template-product .product-shipping-calculator{margin-top:22px}
+.template-product .js-shipping-calculator-form .form-label svg{display:none}
+.template-product .js-shipping-calculator-form .form-group{position:relative;margin:0!important;flex-wrap:wrap}
+.template-product .js-shipping-calculator-form .form-control-container{flex:0 0 100%;max-width:100%;padding:0!important}
+.template-product .js-shipping-input{height:52px!important;border:1px solid #E7C9BE!important;border-radius:999px!important;padding:0 140px 0 22px!important;font:500 14px Montserrat,sans-serif!important;color:#593312!important;background:#fff!important;letter-spacing:.08em}
+.template-product .js-shipping-input:focus{border-color:#A6635D!important;box-shadow:0 0 0 3px rgba(166,99,93,.12)!important}
+.template-product .js-shipping-calculator-form .col-6.col-lg-5{position:absolute;right:5px;top:32px;width:auto;max-width:none;flex:none;padding:0!important}
+.template-product .js-calculate-shipping{height:42px;padding:0 24px!important;border:0!important;border-radius:999px!important;background:#A6635D!important;color:#fff!important;font:600 10.5px Montserrat,sans-serif!important;letter-spacing:.2em;text-transform:uppercase}
+.template-product .js-calculate-shipping:hover{background:#8E524D!important}
+.template-product .js-shipping-calculator-form a.font-small{font-size:11px!important;color:#8C6849!important;text-decoration:underline;text-underline-offset:3px;margin:10px 0 0 22px!important}
+.template-product .js-shipping-calculator-form .alert{border-radius:14px;font-size:12px}
+.template-product .js-shipping-calculator-with-zipcode .font-small{font-size:12px!important;color:#8C6849}
+.template-product .js-shipping-calculator-current-zip{color:#593312}
+.template-product .js-shipping-calculator-change-zipcode{border:1px solid #A6635D!important;border-radius:999px!important;color:#A6635D!important;background:none!important;font:600 10px Montserrat,sans-serif!important;letter-spacing:.16em;padding:7px 14px!important}
+.template-product .js-shipping-calculator-response ul.box{border:1px solid #F2DCC9!important;border-radius:18px!important;box-shadow:none!important;overflow:hidden;background:#fff}
+.template-product .js-shipping-list-item{border-bottom:1px solid #F7EAE2}
+.template-product .js-shipping-list-item .radio-button{padding:14px 18px!important;margin:0!important}
+.template-product .js-shipping-list-item .radio-button-content,.template-product .js-shipping-list-item .radio-button-label{padding:0!important}
+.template-product .js-shipping-list-item .mb-2{font:600 13px Montserrat,sans-serif;color:#593312;margin-bottom:4px!important}
+.template-product .js-shipping-list-item .font-small,.template-product .js-shipping-list-item .font-small *{color:#8C6849}
+.template-product .js-shipping-calculator-response a{color:#A6635D!important;font:600 11px Montserrat,sans-serif!important;letter-spacing:.16em;text-transform:uppercase}
+.bh-pacc{margin-top:26px;border-top:1px solid #F2DCC9}
+.bh-pai{border-bottom:1px solid #F2DCC9}
+.bh-pai>button{display:flex;justify-content:space-between;align-items:center;width:100%;padding:18px 2px;border:0;background:none;font:600 11px Montserrat,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#593312;cursor:pointer}
+.bh-pai>button i{position:relative;width:12px;height:12px}
+.bh-pai>button i:before,.bh-pai>button i:after{content:'';position:absolute;left:0;top:5.5px;width:12px;height:1px;background:#A6635D;transition:transform .3s}
+.bh-pai>button i:after{transform:rotate(90deg)}
+.bh-pai.open>button i:after{transform:rotate(0)}
+.bh-pab{display:none;padding:0 2px 20px}
+.bh-pai.open .bh-pab{display:block}
+.template-product .bh-pab>.mt-4{margin:0!important;padding:0!important;font-size:14px!important;line-height:1.75;color:#5E4634}
+.template-product .bh-pab h1,.template-product .bh-pab h2,.template-product .bh-pab h3,.template-product .bh-pab h4,.template-product .bh-pab h5,.template-product .bh-pab h6{font-family:'Noto Serif Display',serif!important;font-weight:400!important;color:#593312!important;font-size:20px!important;line-height:1.25!important;margin:0 0 10px!important}
+.template-product .bh-pab strong,.template-product .bh-pab b{color:#593312;font-weight:600}
+.template-product .bh-pab *{max-width:100%}
+.bh-pbar{position:fixed;left:12px;right:78px;bottom:10px;z-index:999;display:none;align-items:center;gap:12px;padding:8px 8px 8px 10px;border-radius:999px;background:rgba(255,251,248,.96);box-shadow:0 12px 34px rgba(89,51,18,.18);border:1px solid #F2DCC9;transform:translateY(140%);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.bh-pbar.show{transform:translateY(0)}
+.bh-pbar img{width:44px;height:44px;border-radius:50%;object-fit:cover;background:#FBEDE6;flex:none}
+.bh-pbt{flex:1;min-width:0}
+.bh-pbt b{display:block;font:400 14px 'Noto Serif Display',serif;color:#593312;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bh-pbt span{font-size:12px;color:#8C6849}
+.bh-pbar button{flex:none;height:44px;padding:0 18px;border:0;border-radius:999px;background:#A6635D;color:#fff;font:600 10.5px Montserrat,sans-serif;letter-spacing:.22em;text-transform:uppercase;cursor:pointer}
+.bh-pbar.na button{background:#E9DDD5;color:#A08C7E}
+@media(min-width:768px){.template-product .section-single-product>div:first-child{position:sticky;top:130px}.template-product .section-single-product>div:nth-child(2){min-width:0;flex:0 0 33.3333%;max-width:33.3333%}}
+@media(max-width:767px){.bh-pbar{display:flex}.template-product #single-product{padding-top:0}.template-product .section-single-product>div:first-child{padding:0!important}.template-product .product-image-container .swiper-container{border-radius:0}.template-product .js-swiper-product-pagination{padding:8px 0 0!important;height:auto!important;font-size:11px!important;letter-spacing:.2em;color:#8C6849!important}.template-product .page-header{margin-top:4px}.template-product h1.js-product-name{font-size:28px!important}.template-product #price_display{font-size:28px!important}}

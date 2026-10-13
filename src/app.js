@@ -88,7 +88,7 @@ $('.bh-cart',head).onclick=function(){var t=$('.js-toggle-cart');if(t)t.click()}
 var badge=$('.bh-badge',head);
 function sync(){var n=Math.max.apply(null,[0].concat($$('.js-cart-widget-amount').map(function(e){return parseInt(e.textContent)||0})));badge.textContent=n;badge.classList.toggle('zero',!n)}sync();
 $$('.js-cart-widget-amount').forEach(function(s){new MutationObserver(sync).observe(s,{childList:true,characterData:true,subtree:true})});
-addEventListener('scroll',function(){head.classList.toggle('mini',scrollY>80)},{passive:true});
+addEventListener('scroll',function(){var y=scrollY,m=head.classList.contains('mini');if(!m&&y>110)head.classList.add('mini');else if(m&&y<30)head.classList.remove('mini')},{passive:true});
 /* gaveta */
 var veil=D.createElement('div');veil.id='bh-veil';D.body.appendChild(veil);
 var d=D.createElement('div');d.id='bh-drawer';
@@ -289,6 +289,42 @@ fr.addEventListener('load',function(){if(!sent)return;sent=0;f.classList.remove(
  else{setB('Assinar');msg.textContent='Não conseguimos confirmar o envio. Tente de novo.';msg.classList.add('show','err')}});
 }
 
+
+/* ================= PÁGINA DE PRODUTO ================= */
+function product(){
+var P=$('#single-product');if(!P||P.classList.contains('bh-pp'))return;P.classList.add('bh-pp');if(P.parentElement)P.parentElement.classList.add('bh-ppw');
+var V=[];try{V=JSON.parse(P.getAttribute('data-variants')||'[]')}catch(e){}
+var form=$('.js-product-form',P);if(!form)return;var sel=$('select.js-variation-option',form),btn=$('input.js-addtocart:not(.js-addtocart-placeholder)',form),name=(($('.js-product-name')||{}).textContent||'').trim();
+function opt(){var a=$('.js-insta-variant.selected',form);return a?a.getAttribute('data-option'):sel?sel.value:null}
+function cur(){var o=opt();return V.filter(function(v){return o==null||v.option0===o})[0]||V[0]||{}}
+function ml(s){var m=String(s||'').match(/([\d.,]+)\s*ml/i);return m?parseFloat(m[1].replace(',','.')):0}
+/* Pix: usa o do tema quando ligado no painel; senão o valor com desconto que a própria loja calcula */
+var pix;if(!$('.js-payment-discount-price-product-container',P)){pix=D.createElement('div');pix.className='bh-ppix';var pc=$('.js-price-container',P);if(pc)pc.parentNode.insertBefore(pix,pc.nextSibling)}
+/* tamanhos: botões nativos do tema, só sem o zero na frente (05 ml → 5 ML) */
+function tidy(){$$('.js-insta-variant',form).forEach(function(a){var v=V.filter(function(x){return x.option0===a.getAttribute('data-option')})[0]||{};a.classList.toggle('bh-off',v.available===false);var t=$('.btn-variant-content',a);if(t){var x=t.textContent.trim().replace(/^0(\d)/,'$1');if(t.textContent!==x)t.textContent=x}})}
+/* borrifadas e duração (só decant): 0,07 a 0,1 ml por borrifada, 3 borrifadas por dia */
+var spr;if(V.some(function(v){var m=ml(v.option0);return m>0&&m<=30})){spr=D.createElement('div');spr.className='bh-pspr';spr.innerHTML='<svg viewBox="0 0 26 44"><rect x="9" y="1" width="8" height="5" rx="1.5" fill="#C98F86"/><rect x="11" y="6" width="4" height="4" fill="#C98F86"/><rect x="4" y="10" width="18" height="32" rx="6" fill="#fff" stroke="#E0A79D" stroke-width="1.4"/><rect class="lq" x="5" y="26" width="16" height="15" rx="5" fill="#F2C9BB"/></svg><div><b></b><span></span></div>';var vr=$('.js-product-variants',form)||form.firstChild;vr.parentNode.insertBefore(spr,vr.nextSibling)}
+function r5(x){return Math.floor(x/5)*5}
+function dur(m){var d=Math.round(m/0.08/3);return d<10?d+' dias':d<26?Math.round(d/7)+' semanas':d<38?'1 mês':d<52?'1 mês e meio':Math.round(d/30)+' meses'}
+/* esgotado: avisar pelo WhatsApp da loja */
+var wa=$('a[href*="wa.me/"]'),warn;wa=wa&&wa.href.split('?')[0];if(wa&&btn){warn=D.createElement('a');warn.className='bh-pwa';warn.target='_blank';warn.rel='noopener';warn.textContent='Avise-me quando chegar';btn.parentNode.appendChild(warn)}
+/* barra fixa de compra (celular) */
+var bar=D.createElement('div'),im=$('.js-product-slide-img');bar.className='bh-pbar';bar.innerHTML='<img alt=""><div class="bh-pbt"><b></b><span></span></div><button type="button">Comprar</button>';$('b',bar).textContent=name.replace(/\s*\(fracionado\)/i,'');D.body.appendChild(bar);
+$('button',bar).onclick=function(){if(!btn||btn.disabled){(btn||form).scrollIntoView({behavior:'smooth',block:'center'});return}btn.click()};
+function upd(){var v=cur(),m=ml(v.option0),ok=v.available!==false;tidy();
+ if(pix)pix.innerHTML=v.price_with_payment_discount_short&&v.price_with_payment_discount_short!==v.price_short?'<b>'+v.price_with_payment_discount_short+'</b> no Pix':'';
+ if(spr){spr.style.display=m?'':'none';$('b',spr).innerHTML=r5(m/0.1)+'<i>a</i>'+r5(m/0.07)+' borrifadas';$('span',spr).textContent='Dura cerca de '+dur(m)+' usando 3 borrifadas por dia';var h=Math.round(6+Math.min(m,10)/10*24);$('.lq',spr).setAttribute('y',41-h);$('.lq',spr).setAttribute('height',h)}
+ if(warn){warn.style.display=ok?'none':'';warn.href=wa+'?text='+encodeURIComponent('Oi! Me avisa quando chegar: '+name+(v.option0?' ('+v.option0+')':''))}
+ var u=v.image_url||(im&&(im.currentSrc||im.src))||'';$('img',bar).src=u.indexOf('//')===0?'https:'+u:u;$('span',bar).textContent=(v.option0?v.option0.replace(/^0(\d)/,'$1')+' · ':'')+(v.price_short||'');$('button',bar).textContent=ok?'Comprar':'Esgotado';bar.classList.toggle('na',!ok)}
+/* fotos: moldura na proporção da 1ª foto, todas do mesmo tamanho e sem cortar */
+var l0=$('.js-swiper-product .js-product-slide-link'),pb=l0&&parseFloat(l0.style.paddingBottom);if(pb){var st=D.createElement('style');st.textContent='.template-product .js-swiper-product .js-product-slide-link,.template-product .js-product-thumb{padding-bottom:'+pb+'%!important}';D.head.appendChild(st)}
+var n=0,t=setInterval(function(){var el=$('.js-swiper-product'),sw=el&&el.swiper;if(sw){clearInterval(t);if(innerWidth<768){sw.params.slidesPerView=1;sw.params.centeredSlides=false;sw.params.spaceBetween=0}sw.update();sw.slideTo(sw.activeIndex,0)}else if(++n>20)clearInterval(t)},150);
+/* descrição em aba na coluna de compra */
+var desc=$('.mt-4.mt-md-1',P);if(desc&&desc.textContent.trim()){var acc=D.createElement('div');acc.className='bh-pacc';acc.innerHTML='<div class="bh-pai open"><button type="button">Sobre o perfume<i></i></button><div class="bh-pab"></div></div>';form.parentNode.insertBefore(acc,form.nextSibling);$('.bh-pab',acc).appendChild(desc);$('.bh-pai>button',acc).onclick=function(){this.parentNode.classList.toggle('open')}}
+form.addEventListener('click',function(e){if(e.target.closest('.js-insta-variant'))setTimeout(upd,60)});if(sel)sel.addEventListener('change',function(){setTimeout(upd,30)});upd();
+if(btn&&window.IntersectionObserver)new IntersectionObserver(function(e){bar.classList.toggle('show',!e[0].isIntersecting&&e[0].boundingClientRect.top<0)}).observe(btn);
+}
+
 /* ================= INÍCIO ================= */
 function run(){
 try{header()}catch(e){}
@@ -298,6 +334,7 @@ try{brands()}catch(e){}
 try{footer()}catch(e){}
 try{guide()}catch(e){}
 try{newsletter()}catch(e){}
+try{product()}catch(e){}
 try{cards();buyFlow();obs(cards)}catch(e){}
 var t=0,iv=setInterval(function(){try{swipeHint();cards()}catch(e){}if(++t>20)clearInterval(iv)},500);
 }
