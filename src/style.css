@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+Display:ital,wdth,wght@0,62.5..100,300..600;1,62.5..100,300..600&display=swap');
+/* abre a página já personalizada: esconde até o script montar tudo (no máximo 2,5s, se o script falhar a página aparece sozinha) */
+html:not(.bh-ok) body{opacity:0;animation:bh-reveal .3s 2.5s forwards}
+html.bh-ok body{opacity:1;transition:opacity .25s ease}
+@keyframes bh-reveal{to{opacity:1}}
 
 /* ===== geral ===== */
 .bhi{display:inline-block;flex:none;width:1em;height:1em;vertical-align:middle;background-color:currentColor;mask-size:contain;mask-repeat:no-repeat;mask-position:center}

@@ -337,6 +337,7 @@ try{newsletter()}catch(e){}
 try{product()}catch(e){}
 try{cards();buyFlow();obs(cards)}catch(e){}
 var t=0,iv=setInterval(function(){try{swipeHint();cards()}catch(e){}if(++t>20)clearInterval(iv)},500);
+requestAnimationFrame(function(){D.documentElement.classList.add('bh-ok')});
 }
 if(D.readyState==='loading')D.addEventListener('DOMContentLoaded',run);else run();
 })();
