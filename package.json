@@ -1,0 +1,18 @@
+{
+  "name": "be-happy-nuvemshop",
+  "version": "1.0.0",
+  "description": "Layout personalizado da loja Be Happy Perfumes (Nuvemshop, tema Amazonas)",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csso": "^5.0.5",
+    "postcss": "^8.5.29",
+    "terser": "^5.51.2",
+    "tiny-inflate": "^1.0.3"
+  },
+  "private": true
+}
