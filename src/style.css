@@ -620,3 +620,5 @@ section.bh-nl .bh-nmsg.err{color:#b4443a!important}
 .bh-pbar.na button{background:#E9DDD5;color:#A08C7E}
 @media(min-width:768px){.template-product .section-single-product>div:first-child{position:sticky;top:130px}.template-product .section-single-product>div:nth-child(2){min-width:0;flex:0 0 33.3333%;max-width:33.3333%}}
 @media(max-width:767px){.bh-pbar{display:flex}.template-product #single-product{padding-top:0}.template-product .section-single-product>div:first-child{padding:0!important}.template-product .product-image-container .swiper-container{border-radius:0}.template-product .js-swiper-product-pagination{padding:8px 0 0!important;height:auto!important;font-size:11px!important;letter-spacing:.2em;color:#8C6849!important}.template-product .page-header{margin-top:4px}.template-product h1.js-product-name{font-size:28px!important}.template-product #price_display{font-size:28px!important}}
+.bh-fseal .custom-seal{display:inline-flex!important;align-items:center;margin:0!important;padding:0!important}
+.bh-fpay .bh-fseal img{height:44px;width:auto;padding:0;background:none;box-shadow:none;border-radius:0}

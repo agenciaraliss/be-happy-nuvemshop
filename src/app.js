@@ -222,6 +222,10 @@ cols.map(function(c){return '<div class="bh-fcol"><h4>'+esc(c.t)+'</h4><ul>'+c.l
 '<div class="bh-flegal"><div><div class="info"><span>© '+ano+' '+esc(nome)+'</span>'+(cnpj.length===14?'<i></i><span>CNPJ '+fmtCNPJ(cnpj)+'</span>':'')+'<i></i><span>Todos os direitos reservados</span></div>'+
 '<div class="cred"><a class="bh-lari" href="https://wa.me/message/IGGSZJCTRU67K1" target="_blank" rel="noopener" aria-label="Criado por Sites com a Lari, falar no WhatsApp"><small>Criado por</small><span class="lw" aria-hidden="true"></span></a>'+(nuvem?'<a class="bh-nuvem" href="'+nuvem.getAttribute('href')+'" target="_blank" rel="noopener">'+nuvem.innerHTML+'</a>':'')+'</div></div></div>';
 F.appendChild(box);
+/* selos personalizados do painel (imagem ou código): o rodapé nativo fica escondido, então eles vêm para o nosso */
+var seals=$$('.custom-seal',F).filter(function(x){return !x.closest('.bh-foot')&&[].some.call(x.children,function(n){return !/^(SCRIPT|STYLE|NOSCRIPT)$/.test(n.tagName)})});
+if(seals.length){var pay=$('.bh-fpay',box);if(!pay){pay=D.createElement('div');pay.className='bh-fpay';box.insertBefore(pay,$('.bh-flegal',box))}var sg=D.createElement('div');sg.className='bh-fseal';sg.innerHTML='<small>Selos</small><span class="logos"></span>';pay.appendChild(sg);
+ seals.forEach(function(x){$$('img',x).forEach(function(i){var d=i.getAttribute('data-src');if(d){i.src=d;i.classList.remove('lazyload')}});$('.logos',sg).appendChild(x)})}
 var fm=$('.bh-fmain',box);function fcols(){fm.style.gridTemplateColumns=innerWidth>991?'1.25fr '+new Array(cols.length+1).join('1fr ')+'1.3fr':''}fcols();addEventListener('resize',fcols);
 var f=$('.bh-tform',box),inp=$('input',f),msg=$('.bh-tmsg',f);
 f.addEventListener('submit',function(e){e.preventDefault();var raw=inp.value.trim().toUpperCase().replace(/\s+/g,'');msg.className='bh-tmsg';
